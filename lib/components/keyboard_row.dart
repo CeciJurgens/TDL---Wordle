@@ -26,10 +26,15 @@ class KeyboardRow extends StatelessWidget {
           index++;
           if(min <= index && index <= max) {
             Color color = Theme.of(context).primaryColorLight;
+            Color keyColor = Colors.white;
             if(e.value == AnswerStage.correct){
               color = correctGreen;
             }else if(e.value == AnswerStage.contains){
               color = containsYellow;
+            }else if(e.value == AnswerStage.incorrect){
+              color = Theme.of(context).primaryColorDark;
+            }else{
+              keyColor = Theme.of(context).textTheme.bodyMedium?.color?? Colors.black;
             }
             return Padding(
               padding: EdgeInsets.all(size.width * 0.006),
@@ -46,12 +51,14 @@ class KeyboardRow extends StatelessWidget {
                         Provider.of<Controller>(context, listen: false).setKeyTapped(value: e.key);
                       },
                       child: Center(
-                          child: Text(e.key)
+                          child: Text(e.key,
+                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: keyColor)
                       ),
                     ),
                   )
                 ),
               ),
+              )
             );
           } else {
             return const SizedBox();

@@ -35,26 +35,24 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: Column(
+      body: const Column(
         children: [
+          Divider(
+            height: 1,
+            thickness: 2,
+          ),
           Expanded(
             flex: 7,
-            child: Container(
-              color: Colors.yellow,
-              child: const Grid(),
-            ),
+            child: Grid(),
           ),
           Expanded(
             flex: 4,
-            child: Container(
-              color: Colors.green,
-              child: const Column(
-                children: [
-                  KeyboardRow(min: 1, max: 10),
-                  KeyboardRow(min: 11, max: 20),
-                  KeyboardRow(min: 21, max: 30)
-                ],
-              ),
+            child: Column(
+              children: [
+                KeyboardRow(min: 1, max: 10),
+                KeyboardRow(min: 11, max: 20),
+                KeyboardRow(min: 21, max: 30)
+              ],
             ),
           )
         ],

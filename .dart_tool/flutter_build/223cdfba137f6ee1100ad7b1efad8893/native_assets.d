@@ -1,0 +1,1 @@
+ /home/martin/Documentos/TDL---Wordle/.dart_tool/flutter_build/223cdfba137f6ee1100ad7b1efad8893/native_assets.yaml: 
