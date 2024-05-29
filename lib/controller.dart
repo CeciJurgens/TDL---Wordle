@@ -65,7 +65,7 @@ class Controller extends ChangeNotifier {
 
             final resultKey = keysMap.entries.where((element) => element.key == tilesEntered[j + (currentRow * 5)].letter);
 
-            if(resultKey.single.value == AnswerStage.correct){
+            if(resultKey.single.value == AnswerStage.notAnswered){
               keysMap.update(resultKey.single.key, (value) => AnswerStage.contains);
             }
           }
