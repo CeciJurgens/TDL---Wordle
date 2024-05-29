@@ -34,7 +34,7 @@ class KeyboardRow extends StatelessWidget {
             }else if(e.value == AnswerStage.incorrect){
               color = Theme.of(context).primaryColorDark;
             }else{
-              keyColor = Theme.of(context).textTheme.bodyMedium?.color?? Colors.black;
+              keyColor = Theme.of(context).textTheme.bodyMedium?.color ?? Colors.black;
             }
             return Padding(
               padding: EdgeInsets.all(size.width * 0.006),
