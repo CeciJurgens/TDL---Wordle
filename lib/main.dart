@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wordle/constants/colors.dart';
 import 'pages/home_page.dart';
 import 'controller.dart';
 
@@ -16,7 +17,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Wordle",
-        theme: ThemeData(),
+        theme: ThemeData(
+          primaryColorLight: lightThemeLightShade,
+          primaryColorDark: lightThemeDarkShade,
+          appBarTheme: const AppBarTheme(
+            titleTextStyle: TextStyle(
+              color: Colors.black,
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            )
+          ),
+          scaffoldBackgroundColor: Colors.white,
+          textTheme: const TextTheme(
+            bodyMedium: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black
+            )
+          )
+        ),
         home: HomePage());
   }
 }
