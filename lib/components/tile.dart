@@ -63,7 +63,7 @@ class _TileState extends State<Tile> {
         } else {
           return Container(
             decoration: BoxDecoration(
-                color: _backgroundColor,
+                color: _backgroundColor = Colors.white,
                 border: Border.all(color: _borderColor)
             ),
           );

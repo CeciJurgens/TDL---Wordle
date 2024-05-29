@@ -13,7 +13,8 @@ class Controller extends ChangeNotifier {
 
   setKeyTapped({required String value}) {
     if(value == "ENTER") {
-      if(currentTile == 5 * (currentRow + 1)) {
+      if(currentTile == 5 ) {
+        currentTile = 0;
         checkWord();
       }
 
@@ -23,7 +24,7 @@ class Controller extends ChangeNotifier {
         tilesEntered.removeLast();
       }
     } else {
-      if(currentTile < 5 * (currentRow + 1)) {
+      if(currentTile < 5 ) {
         tilesEntered.add(TileModel(letter: value, answerStage: AnswerStage.notAnswered));
         currentTile++;
       }
