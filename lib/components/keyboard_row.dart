@@ -25,7 +25,7 @@ class KeyboardRow extends StatelessWidget {
         children: keysMap.entries.map((e) {
           index++;
           if(min <= index && index <= max) {
-            Color color = Theme.of(context).primaryColorLight;
+            Color color = Theme.of(context).focusColor;
             Color keyColor = Colors.white;
             if(e.value == AnswerStage.correct){
               color = correctGreen;

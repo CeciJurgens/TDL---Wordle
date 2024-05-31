@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: "Wordle",
         theme: ThemeData(
-          primaryColorLight: lightThemeLightShade,
+          primaryColorLight: darkThemeLightShade,
           primaryColorDark: lightThemeDarkShade,
           appBarTheme: const AppBarTheme(
             titleTextStyle: TextStyle(

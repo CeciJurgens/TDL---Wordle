@@ -19,7 +19,7 @@ class _TileState extends State<Tile> {
 
   @override
   void initState() {
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _borderColor = Theme.of(context).primaryColorLight;
     });
     super.initState();
