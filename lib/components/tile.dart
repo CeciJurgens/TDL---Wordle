@@ -34,7 +34,7 @@ class _TileState extends State<Tile> {
         if(widget.index < notifier.tilesEntered.length) {
           text = notifier.tilesEntered[widget.index].letter;
           _answerStage = notifier.tilesEntered[widget.index].answerStage;
-          _backgroundColor = Theme.of(context).primaryColorLight;
+          _backgroundColor = Theme.of(context).focusColor;
           if(_answerStage == AnswerStage.correct){
             _borderColor = Colors.transparent;
             _backgroundColor = correctGreen;
