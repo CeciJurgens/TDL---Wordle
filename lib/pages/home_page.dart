@@ -20,10 +20,9 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     final r = Random().nextInt(words.length);
     _word = words[r];
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       Provider.of<Controller>(context, listen: false).setCorrectWord(word: _word);
     });
-
     super.initState();
   }
 

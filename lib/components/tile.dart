@@ -14,7 +14,7 @@ class Tile extends StatefulWidget {
 
 class _TileState extends State<Tile> {
   Color _backgroundColor = Colors.transparent;
-  Color _borderColor = Colors.transparent;
+  Color _borderColor = lightThemeLightShade; // Colors.transparent
   late AnswerStage _answerStage;
 
   @override
@@ -34,7 +34,7 @@ class _TileState extends State<Tile> {
         if(widget.index < notifier.tilesEntered.length) {
           text = notifier.tilesEntered[widget.index].letter;
           _answerStage = notifier.tilesEntered[widget.index].answerStage;
-          _backgroundColor = Theme.of(context).focusColor;
+          _backgroundColor = Theme.of(context).primaryColorLight;
           if(_answerStage == AnswerStage.correct){
             _borderColor = Colors.transparent;
             _backgroundColor = correctGreen;
@@ -50,14 +50,18 @@ class _TileState extends State<Tile> {
           return Container(
            decoration: BoxDecoration(
              color: _backgroundColor,
-             border: Border.all(color: _borderColor)
+             border: Border.all(
+                 color: _borderColor
+             )
            ),
            child: FittedBox(
              fit: BoxFit.contain,
              child: Padding(
                padding: const EdgeInsets.all(6.0),
                child: Text(text,
-               style: TextStyle().copyWith(color: fontColor)
+               style: const TextStyle().copyWith(
+                   color: fontColor
+               )
                ),
              )));
         } else {

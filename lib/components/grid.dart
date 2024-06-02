@@ -9,10 +9,10 @@ class Grid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        physics: NeverScrollableScrollPhysics(),
-        padding: EdgeInsets.fromLTRB(36, 20, 36, 20),
+        physics: const NeverScrollableScrollPhysics(),
+        padding: const EdgeInsets.fromLTRB(36, 20, 36, 20),
         itemCount: 30,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             mainAxisSpacing: 4,
             crossAxisSpacing: 4,
             crossAxisCount: 5

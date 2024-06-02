@@ -11,14 +11,15 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Wordle",
         theme: ThemeData(
-          primaryColorLight: darkThemeLightShade,
+          primaryColorLight: lightThemeLightShade,
           primaryColorDark: lightThemeDarkShade,
           appBarTheme: const AppBarTheme(
             titleTextStyle: TextStyle(
@@ -27,14 +28,14 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.bold,
             )
           ),
-          scaffoldBackgroundColor: Colors.white,
-          textTheme: const TextTheme(
-            bodyMedium: TextStyle(
+          //scaffoldBackgroundColor: Colors.white,
+          textTheme: const TextTheme().copyWith(
+            bodyMedium: const TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black
             )
           )
         ),
-        home: HomePage());
+        home: const HomePage());
   }
 }
