@@ -32,7 +32,7 @@ class Controller extends ChangeNotifier {
     notifyListeners();
   }
 
-  checkWord() {
+  void checkWord() {
     List<String> guessed = [];
     String guessedWord= "";
     List<String> remainingCorrect = [];
@@ -40,10 +40,8 @@ class Controller extends ChangeNotifier {
     for(int i = currentRow * 5; i < (currentRow * 5) + 5; i++){
       guessed.add(tilesEntered[i].letter);
     }
-
     guessedWord = guessed.join();
     remainingCorrect = correctWord.characters.toList();
-
     if(guessedWord == correctWord){
       for(int i = currentRow * 5; i < (currentRow * 5) + 5; i++){
         tilesEntered[i].answerStage = AnswerStage.correct;
@@ -63,9 +61,7 @@ class Controller extends ChangeNotifier {
             if(tilesEntered[j + (currentRow * 5)].answerStage != AnswerStage.correct){
               tilesEntered[j + (currentRow * 5)].answerStage = AnswerStage.contains;
             }
-
             final resultKey = keysMap.entries.where((element) => element.key == tilesEntered[j + (currentRow * 5)].letter);
-
             if(resultKey.single.value == AnswerStage.notAnswered){
               keysMap.update(resultKey.single.key, (value) => AnswerStage.contains);
             }
@@ -79,7 +75,6 @@ class Controller extends ChangeNotifier {
         keysMap.update(tilesEntered[i].letter, (value) => AnswerStage.incorrect);
       }
     }
-
     currentRow++;
     notifyListeners();
   }

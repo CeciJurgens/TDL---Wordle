@@ -12,7 +12,8 @@ class KeyboardRow extends StatelessWidget {
     super.key,
   });
 
-  final int min, max;
+  final int min;
+  final int max;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class KeyboardRow extends StatelessWidget {
         children: keysMap.entries.map((e) {
           index++;
           if(min <= index && index <= max) {
-            Color color = Theme.of(context).focusColor;
+            Color color = Theme.of(context).primaryColorLight;
             Color keyColor = Colors.white;
             if(e.value == AnswerStage.correct){
               color = correctGreen;
