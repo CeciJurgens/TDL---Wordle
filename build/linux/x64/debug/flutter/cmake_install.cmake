@@ -1,8 +1,8 @@
-# Install script for directory: /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter
+# Install script for directory: /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug/bundle")
+  set(CMAKE_INSTALL_PREFIX "/home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug/bundle")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

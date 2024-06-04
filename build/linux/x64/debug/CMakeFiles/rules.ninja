@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake --regenerate-during-build -S/home/manuel/Desktop/TpWordle/TDL---Wordle/linux -B/home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug
+  command = /usr/bin/cmake --regenerate-during-build -S/home/manuel/Desktop/Tp/TDL---Wordle/linux -B/home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug
   description = Re-running CMake...
   generator = 1
 

@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug/
+cmake_ninja_workdir = /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target wordle
 
@@ -49,27 +49,27 @@ cmake_ninja_workdir = /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64
 
 build cmake_object_order_depends_target_wordle: phony || flutter/flutter_assemble
 
-build CMakeFiles/wordle.dir/main.cc.o: CXX_COMPILER__wordle_Debug /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/main.cc || cmake_object_order_depends_target_wordle
+build CMakeFiles/wordle.dir/main.cc.o: CXX_COMPILER__wordle_Debug /home/manuel/Desktop/Tp/TDL---Wordle/linux/main.cc || cmake_object_order_depends_target_wordle
   DEFINES = -DAPPLICATION_ID=\"com.example.wordle\"
   DEP_FILE = CMakeFiles/wordle.dir/main.cc.o.d
   FLAGS = -g -Wall -Werror -pthread
-  INCLUDES = -I/home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
+  INCLUDES = -I/home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
   OBJECT_DIR = CMakeFiles/wordle.dir
   OBJECT_FILE_DIR = CMakeFiles/wordle.dir
 
-build CMakeFiles/wordle.dir/my_application.cc.o: CXX_COMPILER__wordle_Debug /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/my_application.cc || cmake_object_order_depends_target_wordle
+build CMakeFiles/wordle.dir/my_application.cc.o: CXX_COMPILER__wordle_Debug /home/manuel/Desktop/Tp/TDL---Wordle/linux/my_application.cc || cmake_object_order_depends_target_wordle
   DEFINES = -DAPPLICATION_ID=\"com.example.wordle\"
   DEP_FILE = CMakeFiles/wordle.dir/my_application.cc.o.d
   FLAGS = -g -Wall -Werror -pthread
-  INCLUDES = -I/home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
+  INCLUDES = -I/home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
   OBJECT_DIR = CMakeFiles/wordle.dir
   OBJECT_FILE_DIR = CMakeFiles/wordle.dir
 
-build CMakeFiles/wordle.dir/flutter/generated_plugin_registrant.cc.o: CXX_COMPILER__wordle_Debug /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/generated_plugin_registrant.cc || cmake_object_order_depends_target_wordle
+build CMakeFiles/wordle.dir/flutter/generated_plugin_registrant.cc.o: CXX_COMPILER__wordle_Debug /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/generated_plugin_registrant.cc || cmake_object_order_depends_target_wordle
   DEFINES = -DAPPLICATION_ID=\"com.example.wordle\"
   DEP_FILE = CMakeFiles/wordle.dir/flutter/generated_plugin_registrant.cc.o.d
   FLAGS = -g -Wall -Werror -pthread
-  INCLUDES = -I/home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
+  INCLUDES = -I/home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral -isystem /usr/include/gtk-3.0 -isystem /usr/include/at-spi2-atk/2.0 -isystem /usr/include/at-spi-2.0 -isystem /usr/include/dbus-1.0 -isystem /usr/lib/x86_64-linux-gnu/dbus-1.0/include -isystem /usr/include/gio-unix-2.0 -isystem /usr/include/cairo -isystem /usr/include/pango-1.0 -isystem /usr/include/harfbuzz -isystem /usr/include/fribidi -isystem /usr/include/atk-1.0 -isystem /usr/include/pixman-1 -isystem /usr/include/uuid -isystem /usr/include/freetype2 -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/libpng16 -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/glib-2.0 -isystem /usr/lib/x86_64-linux-gnu/glib-2.0/include
   OBJECT_DIR = CMakeFiles/wordle.dir
   OBJECT_FILE_DIR = CMakeFiles/wordle.dir/flutter
 
@@ -81,9 +81,9 @@ build CMakeFiles/wordle.dir/flutter/generated_plugin_registrant.cc.o: CXX_COMPIL
 #############################################
 # Link the executable intermediates_do_not_run/wordle
 
-build intermediates_do_not_run/wordle: CXX_EXECUTABLE_LINKER__wordle_Debug CMakeFiles/wordle.dir/main.cc.o CMakeFiles/wordle.dir/my_application.cc.o CMakeFiles/wordle.dir/flutter/generated_plugin_registrant.cc.o | /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so /usr/lib/x86_64-linux-gnu/libgtk-3.so /usr/lib/x86_64-linux-gnu/libgdk-3.so /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so /usr/lib/x86_64-linux-gnu/libpango-1.0.so /usr/lib/x86_64-linux-gnu/libharfbuzz.so /usr/lib/x86_64-linux-gnu/libatk-1.0.so /usr/lib/x86_64-linux-gnu/libcairo-gobject.so /usr/lib/x86_64-linux-gnu/libcairo.so /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so /usr/lib/x86_64-linux-gnu/libgio-2.0.so /usr/lib/x86_64-linux-gnu/libgobject-2.0.so /usr/lib/x86_64-linux-gnu/libglib-2.0.so || flutter/flutter_assemble
+build intermediates_do_not_run/wordle: CXX_EXECUTABLE_LINKER__wordle_Debug CMakeFiles/wordle.dir/main.cc.o CMakeFiles/wordle.dir/my_application.cc.o CMakeFiles/wordle.dir/flutter/generated_plugin_registrant.cc.o | /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so /usr/lib/x86_64-linux-gnu/libgtk-3.so /usr/lib/x86_64-linux-gnu/libgdk-3.so /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so /usr/lib/x86_64-linux-gnu/libpango-1.0.so /usr/lib/x86_64-linux-gnu/libharfbuzz.so /usr/lib/x86_64-linux-gnu/libatk-1.0.so /usr/lib/x86_64-linux-gnu/libcairo-gobject.so /usr/lib/x86_64-linux-gnu/libcairo.so /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so /usr/lib/x86_64-linux-gnu/libgio-2.0.so /usr/lib/x86_64-linux-gnu/libgobject-2.0.so /usr/lib/x86_64-linux-gnu/libglib-2.0.so || flutter/flutter_assemble
   FLAGS = -g
-  LINK_LIBRARIES = -Wl,-rpath,/home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral:  /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so  /usr/lib/x86_64-linux-gnu/libgtk-3.so  /usr/lib/x86_64-linux-gnu/libgdk-3.so  /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so  /usr/lib/x86_64-linux-gnu/libpango-1.0.so  /usr/lib/x86_64-linux-gnu/libharfbuzz.so  /usr/lib/x86_64-linux-gnu/libatk-1.0.so  /usr/lib/x86_64-linux-gnu/libcairo-gobject.so  /usr/lib/x86_64-linux-gnu/libcairo.so  /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so  /usr/lib/x86_64-linux-gnu/libgio-2.0.so  /usr/lib/x86_64-linux-gnu/libgobject-2.0.so  /usr/lib/x86_64-linux-gnu/libglib-2.0.so
+  LINK_LIBRARIES = -Wl,-rpath,/home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral:  /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so  /usr/lib/x86_64-linux-gnu/libgtk-3.so  /usr/lib/x86_64-linux-gnu/libgdk-3.so  /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so  /usr/lib/x86_64-linux-gnu/libpango-1.0.so  /usr/lib/x86_64-linux-gnu/libharfbuzz.so  /usr/lib/x86_64-linux-gnu/libatk-1.0.so  /usr/lib/x86_64-linux-gnu/libcairo-gobject.so  /usr/lib/x86_64-linux-gnu/libcairo.so  /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so  /usr/lib/x86_64-linux-gnu/libgio-2.0.so  /usr/lib/x86_64-linux-gnu/libgobject-2.0.so  /usr/lib/x86_64-linux-gnu/libglib-2.0.so
   OBJECT_DIR = CMakeFiles/wordle.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -95,7 +95,7 @@ build intermediates_do_not_run/wordle: CXX_EXECUTABLE_LINKER__wordle_Debug CMake
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -106,7 +106,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug && /usr/bin/cmake --regenerate-during-build -S/home/manuel/Desktop/TpWordle/TDL---Wordle/linux -B/home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug
+  COMMAND = cd /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug && /usr/bin/cmake --regenerate-during-build -S/home/manuel/Desktop/Tp/TDL---Wordle/linux -B/home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -124,7 +124,7 @@ build list_install_components: phony
 # Utility command for install
 
 build CMakeFiles/install.util: CUSTOM_COMMAND all
-  COMMAND = cd /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug && /usr/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug && /usr/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -136,7 +136,7 @@ build install: phony CMakeFiles/install.util
 # Utility command for install/local
 
 build CMakeFiles/install/local.util: CUSTOM_COMMAND all
-  COMMAND = cd /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -148,7 +148,7 @@ build install/local: phony CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
-  COMMAND = cd /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -157,21 +157,21 @@ build install/strip: phony CMakeFiles/install/strip.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/CMakeLists.txt
+# /home/manuel/Desktop/Tp/TDL---Wordle/linux/CMakeLists.txt
 # =============================================================================
 
 
 #############################################
 # Utility command for flutter_assemble
 
-build flutter/flutter_assemble: phony flutter/CMakeFiles/flutter_assemble /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_basic_message_channel.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_messenger.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_dart_project.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_engine.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_message_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_method_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_message_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_call.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_channel.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_response.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registrar.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registry.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_message_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_method_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_string_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_value.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_view.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/flutter_linux.h flutter/_phony_
+build flutter/flutter_assemble: phony flutter/CMakeFiles/flutter_assemble /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_basic_message_channel.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_messenger.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_dart_project.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_engine.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_message_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_method_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_message_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_call.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_channel.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_response.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registrar.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registry.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_message_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_method_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_string_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_value.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_view.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/flutter_linux.h flutter/_phony_
 
 
 #############################################
 # Utility command for edit_cache
 
 build flutter/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug/flutter && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug/flutter && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -182,7 +182,7 @@ build flutter/edit_cache: phony flutter/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build flutter/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug/flutter && /usr/bin/cmake --regenerate-during-build -S/home/manuel/Desktop/TpWordle/TDL---Wordle/linux -B/home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug
+  COMMAND = cd /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug/flutter && /usr/bin/cmake --regenerate-during-build -S/home/manuel/Desktop/Tp/TDL---Wordle/linux -B/home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -200,7 +200,7 @@ build flutter/list_install_components: phony
 # Utility command for install
 
 build flutter/CMakeFiles/install.util: CUSTOM_COMMAND flutter/all
-  COMMAND = cd /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug/flutter && /usr/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug/flutter && /usr/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -212,7 +212,7 @@ build flutter/install: phony flutter/CMakeFiles/install.util
 # Utility command for install/local
 
 build flutter/CMakeFiles/install/local.util: CUSTOM_COMMAND flutter/all
-  COMMAND = cd /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug/flutter && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug/flutter && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -224,7 +224,7 @@ build flutter/install/local: phony flutter/CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build flutter/CMakeFiles/install/strip.util: CUSTOM_COMMAND flutter/all
-  COMMAND = cd /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug/flutter && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug/flutter && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -235,15 +235,15 @@ build flutter/install/strip: phony flutter/CMakeFiles/install/strip.util
 #############################################
 # Phony custom command for flutter/CMakeFiles/flutter_assemble
 
-build flutter/CMakeFiles/flutter_assemble | ${cmake_ninja_workdir}flutter/CMakeFiles/flutter_assemble: phony /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_basic_message_channel.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_messenger.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_dart_project.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_engine.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_message_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_method_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_message_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_call.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_channel.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_response.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registrar.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registry.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_message_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_method_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_string_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_value.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_view.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/flutter_linux.h
+build flutter/CMakeFiles/flutter_assemble | ${cmake_ninja_workdir}flutter/CMakeFiles/flutter_assemble: phony /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_basic_message_channel.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_messenger.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_dart_project.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_engine.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_message_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_method_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_message_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_call.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_channel.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_response.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registrar.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registry.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_message_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_method_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_string_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_value.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_view.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/flutter_linux.h
 
 
 #############################################
-# Custom command for /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so
+# Custom command for /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so
 
-build /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_basic_message_channel.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_messenger.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_dart_project.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_engine.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_message_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_method_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_message_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_call.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_channel.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_response.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registrar.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registry.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_message_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_method_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_string_codec.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_value.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_view.h /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/flutter_linux.h flutter/_phony_ | ${cmake_ninja_workdir}flutter/_phony_: CUSTOM_COMMAND
-  COMMAND = cd /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug/flutter && /usr/bin/cmake -E env FLUTTER_ROOT=/home/manuel/development/flutter_linux_3.22.0-stable/flutter PROJECT_DIR=/home/manuel/Desktop/TpWordle/TDL---Wordle DART_DEFINES=Zmx1dHRlci5pbnNwZWN0b3Iuc3RydWN0dXJlZEVycm9ycz10cnVl,RkxVVFRFUl9XRUJfQ0FOVkFTS0lUX1VSTD1odHRwczovL3d3dy5nc3RhdGljLmNvbS9mbHV0dGVyLWNhbnZhc2tpdC9mNjM0NGI3NWRjZjg2MWQ4YmYxZjEzMjI3ODBiODgxMWY5ODJlMzFhLw== DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=/home/manuel/Desktop/TpWordle/TDL---Wordle/.dart_tool/package_config.json FLUTTER_TARGET=/home/manuel/Desktop/TpWordle/TDL---Wordle/lib/main.dart /home/manuel/development/flutter_linux_3.22.0-stable/flutter/packages/flutter_tools/bin/tool_backend.sh linux-x64 Debug
-  DESC = Generating /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_basic_message_channel.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_codec.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_messenger.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_dart_project.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_engine.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_message_codec.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_method_codec.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_message_codec.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_call.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_channel.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_codec.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_response.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registrar.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registry.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_message_codec.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_method_codec.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_string_codec.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_value.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_view.h, /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/flutter_linux.h, _phony_
+build /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_basic_message_channel.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_messenger.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_dart_project.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_engine.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_message_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_method_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_message_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_call.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_channel.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_response.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registrar.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registry.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_message_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_method_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_string_codec.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_value.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_view.h /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/flutter_linux.h flutter/_phony_ | ${cmake_ninja_workdir}flutter/_phony_: CUSTOM_COMMAND
+  COMMAND = cd /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug/flutter && /usr/bin/cmake -E env FLUTTER_ROOT=/home/manuel/development/flutter_linux_3.22.0-stable/flutter PROJECT_DIR=/home/manuel/Desktop/Tp/TDL---Wordle DART_DEFINES=Zmx1dHRlci5pbnNwZWN0b3Iuc3RydWN0dXJlZEVycm9ycz10cnVl,RkxVVFRFUl9XRUJfQ0FOVkFTS0lUX1VSTD1odHRwczovL3d3dy5nc3RhdGljLmNvbS9mbHV0dGVyLWNhbnZhc2tpdC9mNjM0NGI3NWRjZjg2MWQ4YmYxZjEzMjI3ODBiODgxMWY5ODJlMzFhLw== DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=/home/manuel/Desktop/Tp/TDL---Wordle/.dart_tool/package_config.json FLUTTER_TARGET=/home/manuel/Desktop/Tp/TDL---Wordle/lib/main.dart /home/manuel/development/flutter_linux_3.22.0-stable/flutter/packages/flutter_tools/bin/tool_backend.sh linux-x64 Debug
+  DESC = Generating /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/libflutter_linux_gtk.so, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_basic_message_channel.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_codec.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_binary_messenger.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_dart_project.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_engine.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_message_codec.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_json_method_codec.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_message_codec.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_call.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_channel.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_codec.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_method_response.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registrar.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_plugin_registry.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_message_codec.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_standard_method_codec.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_string_codec.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_value.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/fl_view.h, /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/flutter_linux/flutter_linux.h, _phony_
   restat = 1
 
 # =============================================================================
@@ -259,14 +259,14 @@ build wordle: phony intermediates_do_not_run/wordle
 # =============================================================================
 
 #############################################
-# Folder: /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug
+# Folder: /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug
 
 build all: phony intermediates_do_not_run/wordle flutter/all
 
 # =============================================================================
 
 #############################################
-# Folder: /home/manuel/Desktop/TpWordle/TDL---Wordle/build/linux/x64/debug/flutter
+# Folder: /home/manuel/Desktop/Tp/TDL---Wordle/build/linux/x64/debug/flutter
 
 build flutter/all: phony
 
@@ -277,14 +277,14 @@ build flutter/all: phony
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/CMakeLists.txt /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/CMakeLists.txt /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/generated_config.cmake /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/generated_plugins.cmake /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/FindPkgConfig.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/manuel/Desktop/Tp/TDL---Wordle/linux/CMakeLists.txt /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/CMakeLists.txt /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/generated_config.cmake /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/generated_plugins.cmake /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/FindPkgConfig.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/CMakeLists.txt /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/CMakeLists.txt /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/ephemeral/generated_config.cmake /home/manuel/Desktop/TpWordle/TDL---Wordle/linux/flutter/generated_plugins.cmake /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/FindPkgConfig.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake: phony
+build /home/manuel/Desktop/Tp/TDL---Wordle/linux/CMakeLists.txt /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/CMakeLists.txt /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/ephemeral/generated_config.cmake /home/manuel/Desktop/Tp/TDL---Wordle/linux/flutter/generated_plugins.cmake /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/FindPkgConfig.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake: phony
 
 
 #############################################
