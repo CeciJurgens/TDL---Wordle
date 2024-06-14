@@ -8,23 +8,43 @@ class Controller extends ChangeNotifier {
   int currentRow = 0;
   List<TileModel> tilesEntered = [];
   String correctWord = "";
+  int wordLength = 5;
+  int currentAttempts = 0;
+  bool isGameWon = false;
+  bool isGameOver = false;
+  int pointsGame = 0;
+  int maxAttemp = 5;
 
-  setCorrectWord({required String word}) => correctWord = word;
+  setCorrectWord({required String word}) {
+    correctWord = word;
+    wordLength = word.length;
+    isGameWon = false;
+    isGameOver = false;
+  }
+
+  incrementAttempts() {
+    currentAttempts++;
+    notifyListeners();
+  }
+
+  resetAttempts() {
+    currentAttempts = 0;
+    notifyListeners();
+  }
 
   setKeyTapped({required String value}) {
-    if(value == "ENTER") {
-      if(currentTile == 5 ) {
+    if (value == "ENTER") {
+      if (currentTile == wordLength) {
         currentTile = 0;
         checkWord();
       }
-
     } else if (value == "BACK") {
-      if(0 < currentTile) {
+      if (0 < currentTile) {
         currentTile--;
         tilesEntered.removeLast();
       }
     } else {
-      if(currentTile < 5 ) {
+      if (currentTile < wordLength) {
         tilesEntered.add(TileModel(letter: value, answerStage: AnswerStage.notAnswered));
         currentTile++;
       }
@@ -34,48 +54,74 @@ class Controller extends ChangeNotifier {
 
   void checkWord() {
     List<String> guessed = [];
-    String guessedWord= "";
+    String guessedWord = "";
     List<String> remainingCorrect = [];
 
-    for(int i = currentRow * 5; i < (currentRow * 5) + 5; i++){
+    for (int i = currentRow * wordLength; i < (currentRow * wordLength) + wordLength; i++) {
       guessed.add(tilesEntered[i].letter);
     }
     guessedWord = guessed.join();
     remainingCorrect = correctWord.characters.toList();
-    if(guessedWord == correctWord){
-      for(int i = currentRow * 5; i < (currentRow * 5) + 5; i++){
+
+    if (guessedWord == correctWord) {
+      isGameWon = true;
+      isGameOver = true;
+      for (int i = currentRow * wordLength; i < (currentRow * wordLength) + wordLength; i++) {
         tilesEntered[i].answerStage = AnswerStage.correct;
-        keysMap.update((tilesEntered[i].letter), (value) => AnswerStage.correct);
+        keysMap.update(tilesEntered[i].letter, (value) => AnswerStage.correct);
       }
-    }else{
-      for(int i = 0; i < 5; i++){
-        if(guessedWord[i] == correctWord[i]){
+    } else {
+      for (int i = 0; i < wordLength; i++) {
+        if (guessedWord[i] == correctWord[i]) {
           remainingCorrect.remove(guessedWord[i]);
-          tilesEntered[i + (currentRow * 5)].answerStage = AnswerStage.correct;
+          tilesEntered[i + (currentRow * wordLength)].answerStage = AnswerStage.correct;
           keysMap.update(guessedWord[i], (value) => AnswerStage.correct);
         }
       }
-      for(int i = 0; i < remainingCorrect.length; i++){
-        for(int j = 0; j < 5; j++){
-          if(remainingCorrect[i] == tilesEntered[j +  (currentRow * 5)].letter){
-            if(tilesEntered[j + (currentRow * 5)].answerStage != AnswerStage.correct){
-              tilesEntered[j + (currentRow * 5)].answerStage = AnswerStage.contains;
+      for (int i = 0; i < remainingCorrect.length; i++) {
+        for (int j = 0; j < wordLength; j++) {
+          if (remainingCorrect[i] == tilesEntered[j + (currentRow * wordLength)].letter) {
+            if (tilesEntered[j + (currentRow * wordLength)].answerStage != AnswerStage.correct) {
+              tilesEntered[j + (currentRow * wordLength)].answerStage = AnswerStage.contains;
             }
-            final resultKey = keysMap.entries.where((element) => element.key == tilesEntered[j + (currentRow * 5)].letter);
-            if(resultKey.single.value == AnswerStage.notAnswered){
+            final resultKey = keysMap.entries.where((element) => element.key == tilesEntered[j + (currentRow * wordLength)].letter);
+            if (resultKey.single.value == AnswerStage.notAnswered) {
               keysMap.update(resultKey.single.key, (value) => AnswerStage.contains);
             }
           }
         }
       }
     }
-    for(int i = currentRow * 5; i < (currentRow * 5) + 5; i++){
-      if(tilesEntered[i].answerStage == AnswerStage.notAnswered){
+    for (int i = currentRow * wordLength; i < (currentRow * wordLength) + wordLength; i++) {
+      if (tilesEntered[i].answerStage == AnswerStage.notAnswered) {
         tilesEntered[i].answerStage = AnswerStage.incorrect;
         keysMap.update(tilesEntered[i].letter, (value) => AnswerStage.incorrect);
       }
     }
+    if (isGameWon){
+      pointsGame += maxAttemp - currentRow;
+    }
     currentRow++;
+    if (currentRow == 5 && !isGameWon) {
+      isGameOver = true;
+    }
+    currentAttempts++;
     notifyListeners();
   }
+
+  void reset() {
+    currentTile = 0;
+    currentRow = 0;
+    tilesEntered.clear();
+    _resetKeysMap();
+    isGameWon = false;
+    isGameOver = false;
+    notifyListeners();
+  }
+
+  void _resetKeysMap() {
+    keysMap.updateAll((key, value) => AnswerStage.notAnswered);
+  }
+
 }
+
