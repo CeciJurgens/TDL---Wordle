@@ -11,6 +11,46 @@ class _MenuPageState extends State<MenuPage> {
   int selectedLevel = 0;
   int selectedCategory = 0;
 
+
+  void _showRulesDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Reglas del Juego'),
+          content: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '1. Adivina la palabra oculta antes de agotar tus intentos.',
+                  style: TextStyle(fontSize: 16.0),
+                ),
+                Text(
+                  '2. Se te dará un número limitado de intentos según el nivel seleccionado.',
+                  style: TextStyle(fontSize: 16.0),
+                ),
+                Text(
+                  '3. Cada intento fallido revelará pistas sobre la palabra oculta.',
+                  style: TextStyle(fontSize: 16.0),
+                ),
+                // Add more rules as needed...
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Cerrar'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,6 +123,11 @@ class _MenuPageState extends State<MenuPage> {
                 );
               },
               child: Text('Jugar'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _showRulesDialog,
+              child: Text('Reglas del Juego'),
             ),
           ],
         ),
