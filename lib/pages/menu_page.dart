@@ -1,23 +1,35 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'game_page.dart';
-import 'package:flutter/cupertino.dart';
 
-class MenuPage extends StatelessWidget {
+class MenuPage extends StatefulWidget {
+  @override
+  _MenuPageState createState() => _MenuPageState();
+}
+
+class _MenuPageState extends State<MenuPage> {
+  int selectedLevel = 0;
+  int selectedCategory = 0;
+
   @override
   Widget build(BuildContext context) {
-    var dificultad1 ;
-    var dificultad2 ;
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Menu'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child:
-        Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(height: 20),
+            Text(
+              'Elegir un Nivel:',
+              style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+            ),
             SizedBox(height: 20),
             CupertinoSlidingSegmentedControl(
               children: {
@@ -26,27 +38,48 @@ class MenuPage extends StatelessWidget {
                 2: Text('Dificil', style: TextStyle(fontSize: 16.0)),
                 3: Text('Experto', style: TextStyle(fontSize: 16.0)),
               },
-              onValueChanged: (value) {dificultad1 = value;},
-              groupValue: dificultad1 = 0,
+              onValueChanged: (value) {
+                setState(() {
+                  selectedLevel = value!;
+                });
+              },
+              groupValue: selectedLevel,
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Elegir una categoria:',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             SizedBox(height: 30),
             CupertinoSlidingSegmentedControl(
               children: {
                 0: Text('Animales', style: TextStyle(fontSize: 15.0)),
                 1: Text('Paises', style: TextStyle(fontSize: 15.0)),
-                2: Text('Objetos', style: TextStyle(fontSize: 15.0)),
-                3: Text('Futbol', style: TextStyle(fontSize: 15.0)),
+                2: Text('Deportes', style: TextStyle(fontSize: 15.0)),
+                3: Text('Frutas', style: TextStyle(fontSize: 15.0)),
                 4: Text('Gerenal', style: TextStyle(fontSize: 15.0)),
               },
-              onValueChanged: (value) {dificultad2 = value;},
-              groupValue: dificultad2 = 0,
+              onValueChanged: (value) {
+                setState(() {
+                  selectedCategory = value!;
+                });
+              },
+              groupValue: selectedCategory,
             ),
             SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(
+                      selectedLevel: selectedLevel,
+                      selectedCategory: selectedCategory,
+                    ),
+                  ),
                 );
               },
               child: Text('Jugar'),
