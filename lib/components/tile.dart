@@ -4,75 +4,58 @@ import 'package:wordle/constants/answer_stages.dart';
 import 'package:wordle/constants/colors.dart';
 import '../controller.dart';
 
-class Tile extends StatefulWidget {
+class Tile extends StatelessWidget {
   const Tile({required this.index, super.key});
   final int index;
-
-  @override
-  State<Tile> createState() => _TileState();
-}
-
-class _TileState extends State<Tile> {
-  Color _backgroundColor = Colors.transparent;
-  Color _borderColor = lightThemeLightShade; // Colors.transparent
-  late AnswerStage _answerStage;
-
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _borderColor = Theme.of(context).primaryColorLight;
-    });
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Consumer<Controller>(
       builder: (_, notifier, __) {
         String text = "";
-        Color fontColor = Colors.white;
-        if(widget.index < notifier.tilesEntered.length) {
-          text = notifier.tilesEntered[widget.index].letter;
-          _answerStage = notifier.tilesEntered[widget.index].answerStage;
-          _backgroundColor = Theme.of(context).primaryColorLight;
-          if(_answerStage == AnswerStage.correct){
-            _borderColor = Colors.transparent;
-            _backgroundColor = correctGreen;
-          }else if(_answerStage == AnswerStage.contains){
-            _borderColor = Colors.transparent;
-            _backgroundColor =  containsYellow;
-          }else if(_answerStage == AnswerStage.incorrect){
-            _borderColor = Colors.transparent;
-            _backgroundColor = Theme.of(context).primaryColorDark;
-          }else{
-            fontColor = Theme.of(context).textTheme.bodyMedium?.color ?? Colors.white;
+        Color backgroundColor = Colors.white;
+        Color borderColor = Theme.of(context).primaryColorLight;
+        Color fontColor = Colors.black;
+
+        if (index < notifier.tilesEntered.length) {
+          text = notifier.tilesEntered[index].letter;
+          final answerStage = notifier.tilesEntered[index].answerStage;
+
+          switch (answerStage) {
+            case AnswerStage.correct:
+              borderColor = Colors.transparent;
+              backgroundColor = correctGreen;
+              fontColor = Colors.white;
+              break;
+            case AnswerStage.contains:
+              borderColor = Colors.transparent;
+              backgroundColor = containsYellow;
+              fontColor = Colors.white;
+              break;
+            case AnswerStage.incorrect:
+              borderColor = Colors.transparent;
+              backgroundColor = Theme.of(context).primaryColorDark;
+              fontColor = Colors.white;
+              break;
+            default:
+              fontColor = Theme.of(context).textTheme.bodyMedium?.color ?? Colors.black;
+              break;
           }
-          return Container(
-           decoration: BoxDecoration(
-             color: _backgroundColor,
-             border: Border.all(
-                 color: _borderColor
-             )
-           ),
-           child: FittedBox(
-             fit: BoxFit.contain,
-             child: Padding(
-               padding: const EdgeInsets.all(6.0),
-               child: Text(text,
-               style: const TextStyle().copyWith(
-                   color: fontColor
-               )
-               ),
-             )));
-        } else {
-          return Container(
-            decoration: BoxDecoration(
-                color: _backgroundColor = Colors.white,
-                border: Border.all(color: _borderColor)
-            ),
-          );
         }
-      }
+
+        return Container(
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            border: Border.all(color: borderColor),
+          ),
+          child: Center(
+            child: Text(
+              text,
+              style: TextStyle(color: fontColor, fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+          ),
+        );
+      },
     );
   }
 }
