@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'game_page.dart';
+import 'ranking.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -9,8 +10,7 @@ class MenuPage extends StatefulWidget {
 
 class _MenuPageState extends State<MenuPage> {
   int selectedLevel = 0;
-  int selectedCategory = 0;
-
+  String selectedCategory = "Animales";
 
   void _showRulesDialog() {
     showDialog(
@@ -96,11 +96,11 @@ class _MenuPageState extends State<MenuPage> {
             SizedBox(height: 30),
             CupertinoSlidingSegmentedControl(
               children: {
-                0: Text('Animales', style: TextStyle(fontSize: 15.0)),
-                1: Text('Paises', style: TextStyle(fontSize: 15.0)),
-                2: Text('Deportes', style: TextStyle(fontSize: 15.0)),
-                3: Text('Frutas', style: TextStyle(fontSize: 15.0)),
-                4: Text('Gerenal', style: TextStyle(fontSize: 15.0)),
+                "Animales": Text('Animales', style: TextStyle(fontSize: 15.0)),
+                "Paises": Text('Paises', style: TextStyle(fontSize: 15.0)),
+                "Deportes": Text('Deportes', style: TextStyle(fontSize: 15.0)),
+                "Frutas": Text('Frutas', style: TextStyle(fontSize: 15.0)),
+                "General": Text('General', style: TextStyle(fontSize: 15.0)),
               },
               onValueChanged: (value) {
                 setState(() {
@@ -129,6 +129,18 @@ class _MenuPageState extends State<MenuPage> {
               onPressed: _showRulesDialog,
               child: Text('Reglas del Juego'),
             ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RankingPage(),
+                  ),
+                );
+              },
+              child: Text('Ranking'),
+            )
           ],
         ),
       ),

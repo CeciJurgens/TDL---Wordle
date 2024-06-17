@@ -45,7 +45,7 @@
     },
     {
       "name": "flutter",
-      "rootUri": "file:///home/manuel/development/flutter_linux_3.22.0-stable/flutter/packages/flutter",
+      "rootUri": "file:///home/manuel/Downloads/flutter_linux_3.22.2-stable/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -57,7 +57,7 @@
     },
     {
       "name": "flutter_test",
-      "rootUri": "file:///home/manuel/development/flutter_linux_3.22.0-stable/flutter/packages/flutter_test",
+      "rootUri": "file:///home/manuel/Downloads/flutter_linux_3.22.2-stable/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -123,7 +123,7 @@
     },
     {
       "name": "sky_engine",
-      "rootUri": "file:///home/manuel/development/flutter_linux_3.22.0-stable/flutter/bin/cache/pkg/sky_engine",
+      "rootUri": "file:///home/manuel/Downloads/flutter_linux_3.22.2-stable/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -182,10 +182,10 @@
       "languageVersion": "3.3"
     }
   ],
-  "generated": "2024-06-04T03:04:56.165620Z",
+  "generated": "2024-06-16T21:50:49.897895Z",
   "generator": "pub",
-  "generatorVersion": "3.4.0",
-  "flutterRoot": "file:///home/manuel/development/flutter_linux_3.22.0-stable/flutter",
-  "flutterVersion": "3.22.0",
+  "generatorVersion": "3.4.3",
+  "flutterRoot": "file:///home/manuel/Downloads/flutter_linux_3.22.2-stable/flutter",
+  "flutterVersion": "3.22.2",
   "pubCache": "file:///home/manuel/.pub-cache"
 }

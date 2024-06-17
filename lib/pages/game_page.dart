@@ -5,10 +5,11 @@ import '../components/keyboard_row.dart';
 import '../components/grid.dart';
 import '../constants/words.dart';
 import '../controller.dart';
+import '../pages/ranking.dart';
 
 class HomePage extends StatefulWidget {
   final int selectedLevel;
-  final int selectedCategory;
+  final String selectedCategory;
 
   const HomePage({
     Key? key,
@@ -65,23 +66,23 @@ class _HomePageState extends State<HomePage> {
 
   String _getRandomWord(int length) {
     switch (widget.selectedCategory) {
-      case 0:
+      case "Animales":
         final filteredWords = animal_category.where((word) => word.length == length).toList();
         final randomIndex = Random().nextInt(filteredWords.length);
         return filteredWords[randomIndex];
-      case 1:
+      case "Paises":
         final filteredWords = countries_category.where((word) => word.length == length).toList();
         final randomIndex = Random().nextInt(filteredWords.length);
         return filteredWords[randomIndex];
-      case 2:
+      case "Deportes":
         final filteredWords = sport_category.where((word) => word.length == length).toList();
         final randomIndex = Random().nextInt(filteredWords.length);
         return filteredWords[randomIndex];
-      case 3:
+      case "Frutas":
         final filteredWords = fruits_category.where((word) => word.length == length).toList();
         final randomIndex = Random().nextInt(filteredWords.length);
         return filteredWords[randomIndex];
-      case 4:
+      case "General":
         final filteredWords = general_category.where((word) => word.length == length).toList();
         final randomIndex = Random().nextInt(filteredWords.length);
         return filteredWords[randomIndex];
@@ -90,7 +91,6 @@ class _HomePageState extends State<HomePage> {
         final randomIndex = Random().nextInt(filteredWords.length);
         return filteredWords[randomIndex];
     }
-
   }
 
   void _refreshGame() {
@@ -121,6 +121,9 @@ class _HomePageState extends State<HomePage> {
               ),
             TextButton(
               onPressed: () {
+                int puntaje = Provider.of<Controller>(context, listen: false).pointsGame;
+                String genero = widget.selectedCategory;
+                RankingPage().subirPuntaje("nombree", puntaje ,genero);
                 Navigator.of(context).pop();
                 _refreshGame();
               },

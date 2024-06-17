@@ -99,7 +99,7 @@ class Controller extends ChangeNotifier {
       }
     }
     if (isGameWon){
-      pointsGame += maxAttemp - currentRow;
+      pointsGame += (maxAttemp - currentRow)*wordLength;
     }
     currentRow++;
     if (currentRow == 5 && !isGameWon) {

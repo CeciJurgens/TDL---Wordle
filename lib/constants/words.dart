@@ -19,7 +19,7 @@ const List<String> countries_category = ["CROACIA", "ESPAÑA", "PORTUGAL", "URUG
 
 const List<String> sport_category = ["FUTBOL", "HANDBALL", "HOCKEY", "RUGBY", "AEROBICO", "AJEDREZ", "BAILE", "BALLET",
   "BILLAR", "BOLOS", "NATACION", "BOXEO", "BUCEO", "BADMINTON", "BEISBOL", "CICLISMO", "CROOUET",
-  "ESGRIMA", "ESQUI", "FUTSAL", "GIMNASIA", "CROSSFIT", "KAYAK", "MARATON", "PATINAJE", "PESCA" ];
+  "ESGRIMA", "ESQUI", "FUTSAL", "GIMNASIA", "CROSSFIT", "KAYAK", "MARATON", "PATINAJE", "PESCA","VOLEY" ];
 
 const List<String> fruits_category = ["ARANDANO", "BANANA", "MELON", "DURAZNO", "CIRUELA",
   "FRUTILLA", "ARGAN", "ALMENDRA", "BAYAS", "CEREZA", "CACAO", "MANGO", "MARACUYA", "FRESA",
