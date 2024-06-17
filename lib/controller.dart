@@ -32,6 +32,10 @@ class Controller extends ChangeNotifier {
     notifyListeners();
   }
 
+  resetPoints() {
+    pointsGame = 0;
+  }
+
   setKeyTapped({required String value}) {
     if (value == "ENTER") {
       if (currentTile == wordLength) {

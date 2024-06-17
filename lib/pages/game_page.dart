@@ -101,16 +101,18 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+
   void _showEndDialog(String message) {
+    bool gameWon = (Provider.of<Controller>(context, listen: false).isGameWon);
+    final TextEditingController _controller = TextEditingController(); //casilla de texto
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          //title: const Text("en construccion"),
           content: Text(message),
           actions: [
-            if (Provider.of<Controller>(context, listen: false).isGameWon)
+            if (gameWon)
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -121,17 +123,65 @@ class _HomePageState extends State<HomePage> {
               ),
             TextButton(
               onPressed: () {
-                int puntaje = Provider.of<Controller>(context, listen: false).pointsGame;
-                String genero = widget.selectedCategory;
-                RankingPage().subirPuntaje("nombree", puntaje ,genero);
-                Navigator.of(context).pop();
-                _refreshGame();
-              },
-              child: const Text("Salir"),
+                if (gameWon){
+                  int puntaje = Provider.of<Controller>(context, listen: false).pointsGame;
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text("Subir puntaje"),
+                          content: Text("Si desea subir puntaje ingrese su nombre"),
+                          actions: [
+                            TextField(
+                              controller: _controller,
+                              decoration: InputDecoration(
+                                hintText: 'Ingrese su nombre',
+                                labelText: 'Nombre',
+                              ),
+                            ),
+                            SizedBox(height: 20),
+                            TextButton(
+                              onPressed: () {
+
+                                String genero = widget.selectedCategory;
+                                String nombre = _controller.text;
+                                RankingPage().subirPuntaje(nombre, puntaje, genero);
+
+                                _refreshGame();
+                                Provider.of<Controller>(context, listen: false).reset();
+                                Navigator.of(context).pop();
+                                Navigator.of(context).pop();
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("Subir puntaje"),
+
+                            ),
+                            TextButton(
+                              onPressed: () {
+
+                                _refreshGame();
+                                Provider.of<Controller>(context, listen: false).reset();
+                                Navigator.of(context).pop();
+                                Navigator.of(context).pop();
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("Salir"),
+                            ),
+                          ],
+                        );
+                      }
+                  );
+                  Provider.of<Controller>(context, listen: false).resetPoints();
+                }else{
+                  _refreshGame();
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pop();
+                }
+            },
+              child: Text("Salir"),
             ),
-          ],
-        );
-      },
+          ]);
+    },
     );
   }
 
