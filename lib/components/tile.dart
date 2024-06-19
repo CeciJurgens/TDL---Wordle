@@ -13,9 +13,9 @@ class Tile extends StatelessWidget {
     return Consumer<Controller>(
       builder: (_, notifier, __) {
         String text = "";
-        Color backgroundColor = Colors.white;
+        Color backgroundColor = Theme.of(context).scaffoldBackgroundColor;
         Color borderColor = Theme.of(context).primaryColorLight;
-        Color fontColor = Colors.black;
+        Color fontColor = Theme.of(context).textTheme.bodyMedium?.color ?? Colors.black;
 
         if (index < notifier.tilesEntered.length) {
           text = notifier.tilesEntered[index].letter;
