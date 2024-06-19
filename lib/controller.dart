@@ -13,45 +13,47 @@ class Controller extends ChangeNotifier {
   bool isGameWon = false;
   bool isGameOver = false;
   int pointsGame = 0;
-  int maxAttemp = 5;
+  int maxAttempts = 5;
+  bool isHintUsed = false;
+  bool isDarkMode = false;
 
-  setCorrectWord({required String word}) {
+  void toggleTheme() {
+    isDarkMode = !isDarkMode;
+    notifyListeners();
+  }
+
+  void setCorrectWord({required String word}) {
     correctWord = word;
     wordLength = word.length;
     isGameWon = false;
     isGameOver = false;
+    isHintUsed = false;
   }
 
-  incrementAttempts() {
+  void incrementAttempts() {
     currentAttempts++;
     notifyListeners();
   }
 
-  resetAttempts() {
+  void resetAttempts() {
     currentAttempts = 0;
     notifyListeners();
   }
 
-  resetPoints() {
+  void resetPoints() {
     pointsGame = 0;
   }
 
-  setKeyTapped({required String value}) {
-    if (value == "ENTER") {
-      if (currentTile == wordLength) {
-        currentTile = 0;
-        checkWord();
-      }
-    } else if (value == "BACK") {
-      if (0 < currentTile) {
-        currentTile--;
-        tilesEntered.removeLast();
-      }
-    } else {
-      if (currentTile < wordLength) {
-        tilesEntered.add(TileModel(letter: value, answerStage: AnswerStage.notAnswered));
-        currentTile++;
-      }
+  void setKeyTapped({required String value}) {
+    if (value == "ENTER" && currentTile == wordLength) {
+      checkWord();
+      currentTile = 0;
+    } else if (value == "BACK" && currentTile > 0) {
+      currentTile--;
+      tilesEntered.removeLast();
+    } else if (currentTile < wordLength) {
+      tilesEntered.add(TileModel(letter: value, answerStage: AnswerStage.notAnswered));
+      currentTile++;
     }
     notifyListeners();
   }
@@ -59,39 +61,58 @@ class Controller extends ChangeNotifier {
   void checkWord() {
     List<String> guessed = [];
     String guessedWord = "";
-    List<String> remainingCorrect = [];
+    List<String> remainingCorrect = correctWord.characters.toList();
 
     for (int i = currentRow * wordLength; i < (currentRow * wordLength) + wordLength; i++) {
       guessed.add(tilesEntered[i].letter);
     }
     guessedWord = guessed.join();
-    remainingCorrect = correctWord.characters.toList();
 
     if (guessedWord == correctWord) {
       isGameWon = true;
       isGameOver = true;
-      for (int i = currentRow * wordLength; i < (currentRow * wordLength) + wordLength; i++) {
-        tilesEntered[i].answerStage = AnswerStage.correct;
-        keysMap.update(tilesEntered[i].letter, (value) => AnswerStage.correct);
-      }
+      _updateTilesAndKeys(AnswerStage.correct);
     } else {
-      for (int i = 0; i < wordLength; i++) {
-        if (guessedWord[i] == correctWord[i]) {
-          remainingCorrect.remove(guessedWord[i]);
-          tilesEntered[i + (currentRow * wordLength)].answerStage = AnswerStage.correct;
-          keysMap.update(guessedWord[i], (value) => AnswerStage.correct);
-        }
+      _updateTilesAndKeysForIncorrectGuess(remainingCorrect, guessedWord);
+    }
+
+    if (isGameWon) {
+      //pointsGame += (maxAttempts - currentRow) * wordLength;
+      pointsGame += (maxAttempts - currentRow);
+    }
+
+    currentRow++;
+    if (currentRow == maxAttempts && !isGameWon) {
+      isGameOver = true;
+    }
+
+    incrementAttempts();
+  }
+
+  void _updateTilesAndKeys(AnswerStage stage) {
+    for (int i = currentRow * wordLength; i < (currentRow * wordLength) + wordLength; i++) {
+      tilesEntered[i].answerStage = stage;
+      keysMap.update(tilesEntered[i].letter, (value) => stage);
+    }
+    notifyListeners();
+  }
+
+  void _updateTilesAndKeysForIncorrectGuess(List<String> remainingCorrect, String guessedWord) {
+    for (int i = 0; i < wordLength; i++) {
+      if (guessedWord[i] == correctWord[i]) {
+        remainingCorrect.remove(guessedWord[i]);
+        tilesEntered[i + (currentRow * wordLength)].answerStage = AnswerStage.correct;
+        keysMap.update(guessedWord[i], (value) => AnswerStage.correct);
       }
-      for (int i = 0; i < remainingCorrect.length; i++) {
-        for (int j = 0; j < wordLength; j++) {
-          if (remainingCorrect[i] == tilesEntered[j + (currentRow * wordLength)].letter) {
-            if (tilesEntered[j + (currentRow * wordLength)].answerStage != AnswerStage.correct) {
-              tilesEntered[j + (currentRow * wordLength)].answerStage = AnswerStage.contains;
-            }
-            final resultKey = keysMap.entries.where((element) => element.key == tilesEntered[j + (currentRow * wordLength)].letter);
-            if (resultKey.single.value == AnswerStage.notAnswered) {
-              keysMap.update(resultKey.single.key, (value) => AnswerStage.contains);
-            }
+    }
+    for (int i = 0; i < remainingCorrect.length; i++) {
+      for (int j = 0; j < wordLength; j++) {
+        if (remainingCorrect[i] == tilesEntered[j + (currentRow * wordLength)].letter) {
+          if (tilesEntered[j + (currentRow * wordLength)].answerStage != AnswerStage.correct) {
+            tilesEntered[j + (currentRow * wordLength)].answerStage = AnswerStage.contains;
+          }
+          if (keysMap[tilesEntered[j + (currentRow * wordLength)].letter] == AnswerStage.notAnswered) {
+            keysMap.update(tilesEntered[j + (currentRow * wordLength)].letter, (value) => AnswerStage.contains);
           }
         }
       }
@@ -102,15 +123,22 @@ class Controller extends ChangeNotifier {
         keysMap.update(tilesEntered[i].letter, (value) => AnswerStage.incorrect);
       }
     }
-    if (isGameWon){
-      pointsGame += (maxAttemp - currentRow)*wordLength;
-    }
-    currentRow++;
-    if (currentRow == 5 && !isGameWon) {
-      isGameOver = true;
-    }
-    currentAttempts++;
     notifyListeners();
+  }
+
+  void useHint() {
+    if (!isHintUsed) {
+      for (int i = 0; i < correctWord.length; i++) {
+        if (!tilesEntered.any((tile) => tile.letter == correctWord[i] && tile.answerStage == AnswerStage.correct)) {
+          tilesEntered.insert(currentRow * wordLength + i, TileModel(letter: correctWord[i], answerStage: AnswerStage.correct));
+          keysMap.update(correctWord[i], (value) => AnswerStage.correct);
+          currentTile++;
+          break;
+        }
+      }
+      isHintUsed = true;
+      notifyListeners();
+    }
   }
 
   void reset() {
@@ -120,12 +148,11 @@ class Controller extends ChangeNotifier {
     _resetKeysMap();
     isGameWon = false;
     isGameOver = false;
+    isHintUsed = false;
     notifyListeners();
   }
 
   void _resetKeysMap() {
     keysMap.updateAll((key, value) => AnswerStage.notAnswered);
   }
-
 }
-
