@@ -1,10 +1,20 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wordle/constants/colors.dart';
 import 'pages/menu_page.dart';
 import 'controller.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyBx3meeOCdt9D4q_2PIkTj4Ci-7dyv9i14",
+          authDomain: "flutter-web-login-a2215.firebaseapp.com",
+          projectId: "flutter-web-login-a2215",
+          storageBucket: "flutter-web-login-a2215.appspot.com",
+          messagingSenderId: "1029150010229",
+          appId: "1:1029150010229:web:933cf542fd0d0a618b813c"));
   runApp(
     MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => Controller())],
