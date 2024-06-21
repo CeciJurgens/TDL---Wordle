@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../controller.dart';
+import '../login_controller.dart';
 import 'game_page.dart';
 import 'help_page.dart';
 import 'ranking.dart';
@@ -24,7 +25,9 @@ class _MenuPageState extends State<MenuPage> {
         actions: [
           IconButton(
             icon: Icon(
-              Provider.of<Controller>(context).isDarkMode ? Icons.dark_mode : Icons.light_mode,
+              Provider.of<Controller>(context).isDarkMode
+                  ? Icons.dark_mode
+                  : Icons.light_mode,
             ),
             onPressed: () {
               Provider.of<Controller>(context, listen: false).toggleTheme();
@@ -103,14 +106,14 @@ class _MenuPageState extends State<MenuPage> {
                   child: Text('Jugar'),
                 ),
                 ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HelpPage(),
-            ),
-          );
-          },
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HelpPage(),
+                      ),
+                    );
+                  },
                   child: Text('Como Jugar?'),
                 ),
                 ElevatedButton(
@@ -126,6 +129,24 @@ class _MenuPageState extends State<MenuPage> {
                 ),
               ],
             ),
+            Spacer(flex: 2),
+            Align(
+              alignment: Alignment.center,
+              child: FloatingActionButton.extended(
+                onPressed: () {
+                  LoginController().signInWithGoogle();
+                },
+                label: Text("Sign in with Google"),
+                backgroundColor: Colors.white,
+                foregroundColor: Colors.black,
+                icon: Image.asset(
+                  "assets/logo_google.png",
+                  height: 32,
+                  width: 32,
+                ),
+              ),
+            ),
+            Spacer(flex: 3),
           ],
         ),
       ),
