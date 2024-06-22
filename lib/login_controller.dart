@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginController{
+class LoginController extends ChangeNotifier{
   final GoogleSignIn googleSignIn = GoogleSignIn();
   String? name, imageUrl, userEmail, uid;
 
@@ -33,6 +34,20 @@ class LoginController{
       print("imageUrl: $imageUrl");
     }
     return user;
+  }
+
+  Future<void> logout() async {
+    await FirebaseAuth.instance.signOut();
+    await googleSignIn.disconnect();
+    name = null;
+    imageUrl = null;
+    userEmail = null;
+    uid = null;
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('auth', false);
+
+    notifyListeners();
   }
 
 }

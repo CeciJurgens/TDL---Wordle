@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wordle/constants/colors.dart';
+import 'package:wordle/pages/main_page.dart';
+import 'login_controller.dart';
 import 'pages/menu_page.dart';
 import 'controller.dart';
 
@@ -17,7 +19,10 @@ void main() async{
           appId: "1:1029150010229:web:933cf542fd0d0a618b813c"));
   runApp(
     MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => Controller())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => Controller()),
+        ChangeNotifierProvider(create: (_) => LoginController()), // Add LoginController
+      ],
       child: MyApp(),
     ),
   );
@@ -72,7 +77,8 @@ class MyApp extends StatelessWidget {
             ),
           ),
           themeMode: controller.isDarkMode ? ThemeMode.dark : ThemeMode.light,
-          home: MenuPage(),
+          //home: MenuPage(),
+          home: MainPage(),
         );
       },
     );
