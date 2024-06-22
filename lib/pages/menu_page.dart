@@ -6,9 +6,13 @@ import '../login_controller.dart';
 import 'game_page.dart';
 import 'help_page.dart';
 import 'ranking.dart';
-import 'help_page.dart'; // Import the new RulesPage
 
 class MenuPage extends StatefulWidget {
+  final String? name;
+  final String? imageUrl;
+
+  MenuPage({this.name, this.imageUrl});
+
   @override
   _MenuPageState createState() => _MenuPageState();
 }
@@ -19,10 +23,31 @@ class _MenuPageState extends State<MenuPage> {
 
   @override
   Widget build(BuildContext context) {
+    final loginController = Provider.of<LoginController>(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Menu'),
+        //title: Text('Wordle - Menu'),
         actions: [
+          if (loginController.name != null && loginController.imageUrl != null) ...[
+            CircleAvatar(
+              backgroundImage: NetworkImage(loginController.imageUrl ?? ''),
+            ),
+            SizedBox(width: 8),
+            Center(
+              child: Text(
+                loginController.name ?? '',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+            SizedBox(width: 8),
+            IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () async {
+                await loginController.logout();
+              },
+            ),
+          ],
           IconButton(
             icon: Icon(
               Provider.of<Controller>(context).isDarkMode
@@ -38,8 +63,22 @@ class _MenuPageState extends State<MenuPage> {
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(height: 20),
+            Container(
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.transparent),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Image.network(
+                'assets/Wordle-01.png', // Replace with your image URL
+                width: 250,
+                height: 250,
+                fit: BoxFit.cover,
+              ),
+            ),
             SizedBox(height: 20),
             Text(
               'Elegir un Nivel:',
@@ -89,7 +128,7 @@ class _MenuPageState extends State<MenuPage> {
             ),
             SizedBox(height: 40),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
                   onPressed: () {
@@ -105,6 +144,7 @@ class _MenuPageState extends State<MenuPage> {
                   },
                   child: Text('Jugar'),
                 ),
+                SizedBox(width: 30),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -116,6 +156,7 @@ class _MenuPageState extends State<MenuPage> {
                   },
                   child: Text('Como Jugar?'),
                 ),
+                SizedBox(width: 30),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -129,24 +170,6 @@ class _MenuPageState extends State<MenuPage> {
                 ),
               ],
             ),
-            Spacer(flex: 2),
-            Align(
-              alignment: Alignment.center,
-              child: FloatingActionButton.extended(
-                onPressed: () {
-                  LoginController().signInWithGoogle();
-                },
-                label: Text("Sign in with Google"),
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.black,
-                icon: Image.asset(
-                  "assets/logo_google.png",
-                  height: 32,
-                  width: 32,
-                ),
-              ),
-            ),
-            Spacer(flex: 3),
           ],
         ),
       ),

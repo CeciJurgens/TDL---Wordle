@@ -5,6 +5,7 @@ import '../components/keyboard_row.dart';
 import '../components/grid.dart';
 import '../constants/words.dart';
 import '../controller.dart';
+import '../login_controller.dart';
 import 'ranking.dart';
 import 'help_page.dart';
 
@@ -295,6 +296,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text("Wordle"),
         centerTitle: true,
         elevation: 0,
+
         actions: [
           IconButton(
             icon: const Icon(Icons.help_outline),
@@ -326,6 +328,40 @@ class _HomePageState extends State<HomePage> {
               Provider.of<Controller>(context, listen: false).toggleTheme();
             },
           ),
+          Consumer<LoginController>(
+            builder: (context, loginController, child) {
+              return PopupMenuButton<String>(
+                onSelected: (value) {
+                  if (value == 'logout') {
+                    loginController.logout();
+                  }
+                },
+                itemBuilder: (BuildContext context) {
+                  return [
+                    PopupMenuItem<String>(
+                      value: 'logout',
+                      child: Text('Logout'),
+                    ),
+                  ];
+                },
+                child: Row(
+                  children: [
+                    if (loginController.imageUrl != null)
+                      CircleAvatar(
+                        backgroundImage: NetworkImage(loginController.imageUrl!),
+                      ),
+                    const SizedBox(width: 8),
+                    if (loginController.name != null)
+                      Text(
+                        loginController.name!,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    const SizedBox(width: 16),
+                  ],
+                ),
+              );
+            },
+          ),
         ],
       ),
       body: Consumer<Controller>(
@@ -338,7 +374,13 @@ class _HomePageState extends State<HomePage> {
               _showEndDialog(message);
             });
           }
+          double availableHeight = MediaQuery.of(context).size.height -
+              AppBar().preferredSize.height -
+              MediaQuery.of(context).padding.top;
+          double gridHeight = availableHeight * 0.6;
+          double keyboardHeight = availableHeight * 0.3;
           return Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Divider(
                 height: 1,
@@ -351,16 +393,18 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
-              Expanded(
-                flex: 6,
+              SizedBox(
+                width: gridHeight,
+                height: gridHeight,
                 child: Grid(
                   wordLength: _word.length,
                   maxAttempts: _maxAttempts,
                 ),
               ),
-              Expanded(
-                flex: 4,
+              SizedBox(
+                height: keyboardHeight,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(child: KeyboardRow(min: 1, max: 10)),
                     Expanded(child: KeyboardRow(min: 11, max: 20)),
