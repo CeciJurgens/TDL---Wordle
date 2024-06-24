@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:wordle/constants/answer_stages.dart';
 import 'package:wordle/data/keys_map.dart';
 import 'models/tile_model.dart';
@@ -45,18 +46,25 @@ class Controller extends ChangeNotifier {
   }
 
   void setKeyTapped({required String value}) {
-    if (value == "ENTER" && currentTile == wordLength) {
-      checkWord();
-      currentTile = 0;
-    } else if (value == "BACK" && currentTile > 0) {
-      currentTile--;
-      tilesEntered.removeLast();
+    if (value == "ENTER") {
+      if (currentTile == wordLength) {
+        checkWord();
+        currentTile = 0;
+      } else {
+        notifyListeners();
+      }
+    } else if (value == "BACK" && currentTile >= 0) {
+      if (currentTile > 0) {
+        currentTile--;
+        tilesEntered.removeLast();
+      }
     } else if (currentTile < wordLength) {
       tilesEntered.add(TileModel(letter: value, answerStage: AnswerStage.notAnswered));
       currentTile++;
     }
     notifyListeners();
   }
+
 
   void checkWord() {
     List<String> guessed = [];
@@ -156,3 +164,4 @@ class Controller extends ChangeNotifier {
     keysMap.updateAll((key, value) => AnswerStage.notAnswered);
   }
 }
+
