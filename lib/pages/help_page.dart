@@ -67,28 +67,35 @@ class HelpPage extends StatelessWidget {
               DecoratedPlainText(
                 text: "Una ficha gris muestra que la letra no está en la palabra. Por ejemplo, M, A, N, O no están en la palabra.",
               ),
+              RulesHeader(title: "Niveles"),
+              DecoratedPlainText(text: "El juego posee CUATRO distintos niveles. Cada nivel se diferencia en la longitud de su palabra a adivinar."),
+              DecoratedPlainText(text: " - Nivel Básico: Se adivinará una palabra de 5 letras."),
+              DecoratedPlainText(text: " - Nivel Medio: Se adivinará una palabra de 6 letras."),
+              DecoratedPlainText(text: " - Nivel Difícil: Se adivinará una palabra de 7 letras."),
+              DecoratedPlainText(text: " - Nivel Experto: Se adivinará una palabra de 8 letras."),
               RulesHeader(title: "Ayuda"),
               DecoratedPlainText(
-                text: "Puedes obtener una ayuda al presionar la tecla de la lampara y se develara una letra de la palabra a adivinar. Solo puedes pedir una sola ayuda por juego.",
+                text: "Puedes obtener una ayuda al presionar la tecla de la lámpara y se develará una letra de la palabra a adivinar."
               ),
+              DecoratedPlainText(text: "Solo puedes pedir una sola ayuda por juego. Cuando pides una ayuda al juego, se te descontará 5 puntos."),
               RulesHeader(title: "Puntos"),
               DecoratedPlainText(
                 text: "La puntuación se basa en el número de intentos necesarios para adivinar la palabra:",
               ),
               DecoratedPlainText(
-                text: "1. Si adivinas la palabra en el primer intento, obtienes 5 puntos.",
+                text: "1. Si adivinas la palabra en el primer intento, obtienes 50 puntos.",
               ),
               DecoratedPlainText(
-                text: "2. Si adivinas la palabra en el segundo intento, obtienes 4 puntos.",
+                text: "2. Si adivinas la palabra en el segundo intento, obtienes 40 puntos.",
               ),
               DecoratedPlainText(
-                text: "3. Si adivinas la palabra en el tercer intento, obtienes 3 puntos.",
+                text: "3. Si adivinas la palabra en el tercer intento, obtienes 30 puntos.",
               ),
               DecoratedPlainText(
-                text: "4. Si adivinas la palabra en el cuarto intento, obtienes 2 puntos.",
+                text: "4. Si adivinas la palabra en el cuarto intento, obtienes 20 puntos.",
               ),
               DecoratedPlainText(
-                text: "5. Si adivinas la palabra en el quinto intento, obtienes 1 punto.",
+                text: "5. Si adivinas la palabra en el quinto intento, obtienes 10 punto.",
               ),
             ],
           ),
@@ -141,13 +148,11 @@ class DecoratedPlainText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //var mainTextColor = Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.grey[850];
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Text(
         text,
         style: TextStyle(
-          //color: mainTextColor,
           fontSize: 14.0,
           fontWeight: FontWeight.bold,
         ),
@@ -202,7 +207,6 @@ class DecoratedTextBox extends StatelessWidget {
         child: Text(
           letter,
           style: TextStyle(
-            //color: mainTextColor,
             fontSize: 20.0,
             fontWeight: FontWeight.normal,
           ),

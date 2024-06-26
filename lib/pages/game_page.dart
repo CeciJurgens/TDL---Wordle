@@ -86,7 +86,9 @@ class _HomePageState extends State<HomePage> {
   void _refreshGame() {
     setState(() {
       _initializeGame();
-      Provider.of<Controller>(context, listen: false).reset();
+      var controller = Provider.of<Controller>(context, listen: false);
+      controller.reset();
+      controller.resetPoints();
       _currentAttempts = 0;
     });
   }
@@ -96,13 +98,28 @@ class _HomePageState extends State<HomePage> {
       case 0:
         return "Facil (5 letras)";
       case 1:
-        return "Intermedio (6 letras)";
+        return "Medio (6 letras)";
       case 2:
         return "Dificil (7 letters)";
       case 3:
         return "Experto (8 letras)";
       default:
         return "Facil (5 letras)";
+    }
+  }
+
+  double _getGridWidth(int selectedLevel) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    switch (selectedLevel) {
+      case 1:
+        return screenWidth * 0.35;
+      case 2:
+        return screenWidth * 0.4;
+      case 3:
+        return screenWidth * 0.45;
+      case 0:
+      default:
+        return screenWidth * 0.3;
     }
   }
 
@@ -114,7 +131,28 @@ class _HomePageState extends State<HomePage> {
       },
     );
   }
-/*
+
+  void _showHintDialog(BuildContext context) {
+    var hintMessage = Provider.of<Controller>(context, listen: false).currentHint;
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Ayuda"),
+          content: Text(hintMessage),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("Cerrar"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   void _showEndDialog(String message) {
     bool gameWon = Provider.of<Controller>(context, listen: false).isGameWon;
     final TextEditingController _controller = TextEditingController();
@@ -133,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                   Provider.of<Controller>(context, listen: false).reset();
                   _initializeGame();
                 },
-                child: const Text("Juega Otra Vez"),
+                child: const Text("Seguir Jugando?"),
               ),
             TextButton(
               onPressed: () {
@@ -149,91 +187,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         );
-      },
-    );
-  }
-
- */
-
-  void _showEndDialog(String message) {
-    bool gameWon = (Provider.of<Controller>(context, listen: false).isGameWon);
-    final TextEditingController _controller = TextEditingController(); //casilla de texto
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return AlertDialog(
-            content: Text(message),
-            actions: [
-              if (gameWon)
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                    Provider.of<Controller>(context, listen: false).reset();
-                    _initializeGame();
-                  },
-                  child: const Text("Juega Otra Vez"),
-                ),
-              TextButton(
-                onPressed: () {
-                  if (gameWon){
-                    int puntaje = Provider.of<Controller>(context, listen: false).pointsGame;
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: Text("Subir puntaje"),
-                            content: Text("Si desea subir puntaje ingrese su nombre"),
-                            actions: [
-                              TextField(
-                                controller: _controller,
-                                decoration: InputDecoration(
-                                  hintText: 'Ingrese su nombre',
-                                  labelText: 'Nombre',
-                                ),
-                              ),
-                              SizedBox(height: 20),
-                              TextButton(
-                                onPressed: () {
-
-                                  String genero = widget.selectedCategory;
-                                  String nombre = _controller.text;
-                                  RankingPage().subirPuntaje(nombre, puntaje, genero);
-
-                                  _refreshGame();
-                                  Provider.of<Controller>(context, listen: false).reset();
-                                  Navigator.of(context).pop();
-                                  Navigator.of(context).pop();
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text("Subir puntaje"),
-
-                              ),
-                              TextButton(
-                                onPressed: () {
-
-                                  _refreshGame();
-                                  Provider.of<Controller>(context, listen: false).reset();
-                                  Navigator.of(context).pop();
-                                  Navigator.of(context).pop();
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text("Salir"),
-                              ),
-                            ],
-                          );
-                        }
-                    );
-                    Provider.of<Controller>(context, listen: false).resetPoints();
-                  }else{
-                    _refreshGame();
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pop();
-                  }
-                },
-                child: Text("Salir"),
-              ),
-            ]);
       },
     );
   }
@@ -291,16 +244,20 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Wordle"),
-        centerTitle: true,
-        elevation: 0,
+    return PopScope(
+      onPopInvoked: (popDisposition) async {
+        _refreshGame();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Wordle"),
+          centerTitle: true,
+          elevation: 0,
 
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.help_outline),
-            onPressed: () {
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.help_outline),
+              onPressed: () {
               _showHelpPage(context);
             },
           ),
@@ -313,9 +270,10 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               if (!Provider.of<Controller>(context, listen: false).isHintUsed) {
                 Provider.of<Controller>(context, listen: false).useHint();
+                _showHintDialog(context);
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("Solo puedes usar la ayuda una sola vez")),
+                  const SnackBar(content: Text('Solo puedes usar la ayuda una sola vez.')),
                 );
               }
             },
@@ -340,7 +298,7 @@ class _HomePageState extends State<HomePage> {
                   return [
                     PopupMenuItem<String>(
                       value: 'logout',
-                      child: Text('Logout'),
+                      child: Text('Salir'),
                     ),
                   ];
                 },
@@ -374,11 +332,14 @@ class _HomePageState extends State<HomePage> {
               _showEndDialog(message);
             });
           }
+
           double availableHeight = MediaQuery.of(context).size.height -
               AppBar().preferredSize.height -
               MediaQuery.of(context).padding.top;
           double gridHeight = availableHeight * 0.6;
           double keyboardHeight = availableHeight * 0.3;
+
+
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -394,7 +355,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                width: gridHeight,
+                width: _getGridWidth(widget.selectedLevel),
                 height: gridHeight,
                 child: Grid(
                   wordLength: _word.length,
@@ -409,7 +370,7 @@ class _HomePageState extends State<HomePage> {
                     Expanded(child: KeyboardRow(min: 1, max: 10)),
                     Expanded(child: KeyboardRow(min: 11, max: 20)),
                     Expanded(child: KeyboardRow(min: 21, max: 30)),
-                    Text('Attempts left: ${_maxAttempts - controller.currentAttempts}'),
+                    Text('Te quedan: ${_maxAttempts - controller.currentAttempts} oportunidades.'),
                   ],
                 ),
               ),
@@ -417,6 +378,7 @@ class _HomePageState extends State<HomePage> {
           );
         },
       ),
+    ),
     );
   }
 }

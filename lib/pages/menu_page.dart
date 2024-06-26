@@ -27,7 +27,6 @@ class _MenuPageState extends State<MenuPage> {
 
     return Scaffold(
       appBar: AppBar(
-        //title: Text('Wordle - Menu'),
         actions: [
           if (loginController.name != null && loginController.imageUrl != null) ...[
             CircleAvatar(
@@ -73,7 +72,7 @@ class _MenuPageState extends State<MenuPage> {
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Image.network(
-                'assets/Wordle-01.png', // Replace with your image URL
+                'assets/Wordle-01.png',
                 width: 250,
                 height: 250,
                 fit: BoxFit.cover,
@@ -166,7 +165,7 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                     );
                   },
-                  child: Text('Ranking'),
+                  child: Text('Mejores Puntajes'),
                 ),
               ],
             ),
