@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wordle/constants/answer_stages.dart';
@@ -43,6 +44,7 @@ class Controller extends ChangeNotifier {
 
   void resetPoints() {
     pointsGame = 0;
+    notifyListeners();
   }
 
   void setKeyTapped({required String value}) {
@@ -85,8 +87,10 @@ class Controller extends ChangeNotifier {
     }
 
     if (isGameWon) {
-      //pointsGame += (maxAttempts - currentRow) * wordLength;
-      pointsGame += (maxAttempts - currentRow);
+      pointsGame += (maxAttempts - currentRow) * 10;
+      if (isHintUsed){
+        pointsGame -= 5;
+      }
     }
 
     currentRow++;
@@ -136,18 +140,27 @@ class Controller extends ChangeNotifier {
 
   void useHint() {
     if (!isHintUsed) {
+      List<int> availableIndices = [];
       for (int i = 0; i < correctWord.length; i++) {
         if (!tilesEntered.any((tile) => tile.letter == correctWord[i] && tile.answerStage == AnswerStage.correct)) {
-          tilesEntered.insert(currentRow * wordLength + i, TileModel(letter: correctWord[i], answerStage: AnswerStage.correct));
-          keysMap.update(correctWord[i], (value) => AnswerStage.correct);
-          currentTile++;
-          break;
+          availableIndices.add(i);
         }
       }
+
+      if (availableIndices.isNotEmpty) {
+        int randomIndex = availableIndices[Random().nextInt(availableIndices.length)];
+        _currentHint = 'La letra "${correctWord[randomIndex]}" esta en la posicion ${randomIndex + 1}';
+      }
+
       isHintUsed = true;
       notifyListeners();
     }
   }
+
+  String _currentHint = '';
+
+  String get currentHint => _currentHint;
+
 
   void reset() {
     currentTile = 0;
@@ -164,4 +177,3 @@ class Controller extends ChangeNotifier {
     keysMap.updateAll((key, value) => AnswerStage.notAnswered);
   }
 }
-

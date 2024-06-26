@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:wordle/constants/colors.dart';
 import 'package:wordle/pages/main_page.dart';
 import 'login_controller.dart';
-import 'pages/menu_page.dart';
 import 'controller.dart';
 
 void main() async{
@@ -21,7 +20,7 @@ void main() async{
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => Controller()),
-        ChangeNotifierProvider(create: (_) => LoginController()), // Add LoginController
+        ChangeNotifierProvider(create: (_) => LoginController()),
       ],
       child: MyApp(),
     ),
@@ -77,7 +76,6 @@ class MyApp extends StatelessWidget {
             ),
           ),
           themeMode: controller.isDarkMode ? ThemeMode.dark : ThemeMode.light,
-          //home: MenuPage(),
           home: MainPage(),
         );
       },
