@@ -87,7 +87,7 @@ class Controller extends ChangeNotifier {
     }
 
     if (isGameWon) {
-      pointsGame += (maxAttempts - currentRow) * 10;
+      pointsGame += (maxAttempts - currentRow) * wordLength;
       if (isHintUsed){
         pointsGame -= 5;
       }

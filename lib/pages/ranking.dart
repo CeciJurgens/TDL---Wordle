@@ -1,72 +1,53 @@
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/cupertino.dart';
+import '../services/database.dart';
+import 'package:intl/intl.dart';
 
-class RankingPage extends StatefulWidget {
-  _RankingPageState createState() => _RankingPageState();
+class Jugador{
+  String nombre;
+  int puntaje;
+  Timestamp fechaHora;
 
-  void subirPuntaje(String nombre, int puntaje, String genero) async {
-    String rutaArchivo = 'lib/data/ranking.json';
-    // Lee el contenido del archivo
-    String jsonString = await File(rutaArchivo).readAsString();
-    Map Rankings = json.decode(jsonString);
+  Jugador({
+    required this.nombre,
+    required this.puntaje,
+    required this.fechaHora
+  });
 
-    List rankingSeleccionado = Rankings[genero]; //lista especifica
-    rankingSeleccionado.add({"nombre": nombre, "puntaje": puntaje});
+  Jugador.fromJson(Map<String, Object?> json) : this (
+      nombre: json["nombre"]! as String,
+      puntaje: json["puntaje"]! as int,
+      fechaHora: json["fecha"]! as Timestamp
+  );
 
-    String rankingActualizado = jsonEncode(Rankings);
-
-    // Escribir en el archivo JSON
-    File file = File(rutaArchivo);
-    file.writeAsString(rankingActualizado).then((_) {
-
-    }).catchError((error) {
-      //atrapar error
-    });
+  Map<String, Object?> toJson (){
+    return {
+      "nombre": nombre,
+      "puntaje": puntaje,
+      "fecha": fechaHora
+    };
   }
 }
 
+class RankingPage extends StatefulWidget {
+  _RankingPageState createState() => _RankingPageState();
+  final DataBaseService dataBase = DataBaseService();
+
+  void subirPuntaje(String nombre, int puntaje, String genero) async {
+    Jugador jugador = Jugador(nombre: nombre, puntaje: puntaje, fechaHora: Timestamp.now());
+    dataBase.addJugador(jugador, genero);
+  }}
+
 class _RankingPageState extends State<RankingPage>{
-  List<Widget> _listaItems = [];
-  String? generoSelected = "Animales";
+
+  final DataBaseService dataBase = DataBaseService();
+  String? generoSelected = "Deportes";
   @override
-  void initState() {
-    super.initState();
-    _cargarItemsDesdeJson(generoSelected);
-  }
-
-  void _cargarItemsDesdeJson(genero) async {
-    String rutaArchivo = 'lib/data/ranking.json';
-    // Lee el contenido del archivo
-    String jsonString = await File(rutaArchivo).readAsString();
-    Map Rankings = json.decode(jsonString);
-    List rankingSeleccionado = Rankings[genero]; //lista especifica
-
-    List<Widget> listaRankAux = [];
-    int nroPuesto = 1;
-
-    rankingSeleccionado.sort((a, b) => b['puntaje'].compareTo(a['puntaje'])); //ordeno la lista
-
-    for (var item in rankingSeleccionado) {
-      String nombre = item['nombre'];
-      double puntaje = item['puntaje'].toDouble();
-      listaRankAux.add(ListTile(
-        leading: CircleAvatar(child: Text(nroPuesto.toString())),
-        title: Text('Jugador : $nombre '),
-        subtitle: Text('Puntaje: $puntaje'),
-      ));
-      nroPuesto++;
-    }
-    setState(() {
-      _listaItems =  listaRankAux;
-
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Ranking'),
@@ -76,30 +57,60 @@ class _RankingPageState extends State<RankingPage>{
         child: Column(
           children: [
             CupertinoSlidingSegmentedControl(
-            children: {
-              "Animales": Text("Animales", style: TextStyle(fontSize: 15.0)),
-              "Paises": Text("Paises", style: TextStyle(fontSize: 15.0)),
-              "Deportes": Text("Deportes", style: TextStyle(fontSize: 15.0)),
-              "Frutas": Text("Frutas", style: TextStyle(fontSize: 15.0)),
-              "General": Text("General", style: TextStyle(fontSize: 15.0)),
-            },
-            onValueChanged: (value) {
-              setState(() {
-                generoSelected = value;
-                _cargarItemsDesdeJson(generoSelected);
-              });
-            },
-            groupValue: generoSelected,
-          ),
+              children: {
+                "Deportes": Text("Deportes", style: TextStyle(fontSize: 15.0)),
+                "Paises": Text("Paises", style: TextStyle(fontSize: 15.0)),
+                "Frutas": Text("Frutas", style: TextStyle(fontSize: 15.0)),
+                "General": Text("General", style: TextStyle(fontSize: 15.0)),
+                "Animales": Text("Animales", style: TextStyle(fontSize: 15.0)),
+              },
+              onValueChanged: (value) {
+                setState(() {
+                  generoSelected = value; // Actualizar el género seleccionado
+                });
+              },
+              groupValue: generoSelected,
+            ),
             SizedBox(height: 20),
             Expanded(
-              child: ListView(
-                children: _listaItems,
+              child: StreamBuilder<QuerySnapshot>(
+                stream: dataBase.getDataBase(generoSelected),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+
+                  if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                    return Center(child: Text('No hay jugadores disponibles'));
+                  }
+                  List<DocumentSnapshot> documentos = snapshot.data!.docs;
+
+                  int nroPuesto = 0;
+                  return ListView.builder(
+                    itemCount: documentos.length,
+                    itemBuilder: (context, index) {
+                      Jugador jugador = documentos[index].data() as Jugador;
+                      nroPuesto++;
+                      String nombreJugador = jugador.nombre;
+                      int puntajeJugador = jugador.puntaje;
+                      Timestamp fecha = jugador.fechaHora;
+                      return ListTile(
+                        leading: CircleAvatar(child: Text(nroPuesto.toString())),
+                        title: Text('Jugador: $nombreJugador   Puntaje obtenido : $puntajeJugador',
+                            style: TextStyle(
+                                color: Color(0xFF006400), // Color verde oscuro personalizado
+                                fontSize: 16.0)),
+                        subtitle: Text('Fecha : ${DateFormat('dd-MM-yyyy h:mm a').format(fecha.toDate())}'),
+
+                      );
+                    },
+                  );
+                },
               ),
             ),
-          ]
+          ],
+        ),
       ),
-      )
     );
   }
 }
