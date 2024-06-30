@@ -38,8 +38,13 @@ class Controller extends ChangeNotifier {
   }
 
   void resetAttempts() {
-    currentAttempts = 0;
-    notifyListeners();
+    //currentAttempts = 0;
+    //notifyListeners();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      currentAttempts = 0;
+      notifyListeners();
+    });
   }
 
   void resetPoints() {
@@ -87,7 +92,7 @@ class Controller extends ChangeNotifier {
     }
 
     if (isGameWon) {
-      pointsGame += (maxAttempts - currentRow) * wordLength;
+      pointsGame += (maxAttempts - currentRow) * 10;
       if (isHintUsed){
         pointsGame -= 5;
       }
