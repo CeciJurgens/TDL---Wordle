@@ -1,11 +1,10 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../services/database.dart';
 import 'package:intl/intl.dart';
 
-class Jugador{
+class Jugador {
   String nombre;
   int puntaje;
   Timestamp fechaHora;
@@ -13,20 +12,21 @@ class Jugador{
   Jugador({
     required this.nombre,
     required this.puntaje,
-    required this.fechaHora
+    required this.fechaHora,
   });
 
-  Jugador.fromJson(Map<String, Object?> json) : this (
-      nombre: json["nombre"]! as String,
-      puntaje: json["puntaje"]! as int,
-      fechaHora: json["fecha"]! as Timestamp
+  Jugador.fromJson(Map<String, Object?> json)
+      : this(
+    nombre: json["nombre"]! as String,
+    puntaje: json["puntaje"]! as int,
+    fechaHora: json["fecha"]! as Timestamp,
   );
 
-  Map<String, Object?> toJson (){
+  Map<String, Object?> toJson() {
     return {
       "nombre": nombre,
       "puntaje": puntaje,
-      "fecha": fechaHora
+      "fecha": fechaHora,
     };
   }
 }
@@ -38,13 +38,12 @@ class RankingPage extends StatefulWidget {
   void subirPuntaje(String nombre, int puntaje, String genero) async {
     Jugador jugador = Jugador(nombre: nombre, puntaje: puntaje, fechaHora: Timestamp.now());
     dataBase.addJugador(jugador, genero);
-  }}
+  }
+}
 
-class _RankingPageState extends State<RankingPage>{
-
+class _RankingPageState extends State<RankingPage> {
   final DataBaseService dataBase = DataBaseService();
   String? generoSelected = "Deportes";
-  @override
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +72,7 @@ class _RankingPageState extends State<RankingPage>{
             ),
             SizedBox(height: 20),
             Expanded(
-              child: StreamBuilder<QuerySnapshot>(
+              child: StreamBuilder<QuerySnapshot<Jugador>>(
                 stream: dataBase.getDataBase(generoSelected),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
@@ -83,25 +82,28 @@ class _RankingPageState extends State<RankingPage>{
                   if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
                     return Center(child: Text('No hay jugadores disponibles'));
                   }
-                  List<DocumentSnapshot> documentos = snapshot.data!.docs;
+
+                  List<QueryDocumentSnapshot<Jugador>> documentos = snapshot.data!.docs;
 
                   int nroPuesto = 0;
                   return ListView.builder(
                     itemCount: documentos.length,
                     itemBuilder: (context, index) {
-                      Jugador jugador = documentos[index].data() as Jugador;
+                      Jugador jugador = documentos[index].data();
                       nroPuesto++;
                       String nombreJugador = jugador.nombre;
                       int puntajeJugador = jugador.puntaje;
                       Timestamp fecha = jugador.fechaHora;
                       return ListTile(
                         leading: CircleAvatar(child: Text(nroPuesto.toString())),
-                        title: Text('Jugador: $nombreJugador   Puntaje obtenido : $puntajeJugador',
-                            style: TextStyle(
-                                color: Color(0xFF006400), // Color verde oscuro personalizado
-                                fontSize: 16.0)),
+                        title: Text(
+                          'Jugador: $nombreJugador   Puntaje obtenido : $puntajeJugador',
+                          style: TextStyle(
+                            color: Color(0xFF006400), // Color verde oscuro personalizado
+                            fontSize: 16.0,
+                          ),
+                        ),
                         subtitle: Text('Fecha : ${DateFormat('dd-MM-yyyy h:mm a').format(fecha.toDate())}'),
-
                       );
                     },
                   );
@@ -114,3 +116,5 @@ class _RankingPageState extends State<RankingPage>{
     );
   }
 }
+
+
