@@ -13,11 +13,13 @@ Repositorio del trabajo practico de la  materia Teoria del Lenguaje, 2024C1, Fac
 
 Wordle es un juego de palabras en el que los jugadores intentan adivinar una palabra secreta en un número limitado de intentos. Este juego tiene cuatro distintos niveles y cada nivel varia en la longitud de palabra en adivinar. Aparte, los jugadores pueden elegir entre distintas categorias: animales, frutas, paises, deportes y general. 
 
-La aplicacion fue desarrollada para Android. El codigo de la aplicacion fue implementado con el lenguaje de programacion Dart y utilizando el framework Flutter.
+La aplicacion fue desarrollada para web. El codigo de la aplicacion fue implementado con el lenguaje de programacion Dart y utilizando el SDK Flutter.
 
 ## Screenshots
 
-<img src="https://github.com/CeciJurgens/TDL---Wordle/blob/main/img01.png" alt="Screenshot 1" width="200"/> <img src="https://github.com/CeciJurgens/TDL---Wordle/blob/main/img02.png" alt="Screenshot 2" width="200"/> <img src="https://github.com/CeciJurgens/TDL---Wordle/blob/main/img03.png" alt="Screenshot 3" width="200"/> <img src="https://github.com/CeciJurgens/TDL---Wordle/blob/main/img04.png" alt="Screenshot 4" width="200"/>
+<img src="https://github.com/CeciJurgens/TDL---Wordle/blob/main/assets/1.png" alt="Screenshot 1" width="250"/> <img src="https://github.com/CeciJurgens/TDL---Wordle/blob/main/assets/2.png" alt="Screenshot 2" width="250"/> <img src="https://github.com/CeciJurgens/TDL---Wordle/blob/main/assets/3.png" alt="Screenshot 3" width="250"/> <img src="https://github.com/CeciJurgens/TDL---Wordle/blob/main/assets/4.png" alt="Screenshot 4" width="250"/> <img src="https://github.com/CeciJurgens/TDL---Wordle/blob/main/assets/5.png" alt="Screenshot 4" width="250"/> <img src="https://github.com/CeciJurgens/TDL---Wordle/blob/main/assets/6.png" alt="Screenshot 4" width="250"/> <img src="https://github.com/CeciJurgens/TDL---Wordle/blob/main/assets/7.png" alt="Screenshot 4" width="250"/>
+
+
 
 ## Features
 - Distintos niveles: basico, intermedio, dificil y experto.
